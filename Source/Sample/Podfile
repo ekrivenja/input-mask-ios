@@ -2,13 +2,14 @@ ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '8.0'
+platform :ios, '10.0'
 inhibit_all_warnings!
 use_frameworks!
 
-
 project 'Sample.xcodeproj'
 
+# Material Design
+pod 'MaterialComponents/TextFields'
 
 target :Sample do
     pod 'InputMask', :path => '../../'

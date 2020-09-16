@@ -6,12 +6,15 @@
 
 import UIKit
 import InputMask
+import MaterialComponents.MaterialTextFields
 
 
 open class ViewController: UIViewController, MaskedTextFieldDelegateListener {
     
     @IBOutlet weak var listener: MaskedTextFieldDelegate!
-    @IBOutlet weak var field: UITextField!
+    @IBOutlet weak var field: MDCTextField!
+    
+    var fieldController: MDCTextInputControllerOutlined?
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +22,12 @@ open class ViewController: UIViewController, MaskedTextFieldDelegateListener {
         listener.affineFormats = [
             "8 ([000]) [000] [00] [00]"
         ]
+        
+        fieldController = MDCTextInputControllerOutlined(textInput: field)
+        
+        // any of this fixes UI issue
+//        listener.primaryMaskFormat = "[000] [00] [00]"
+//        listener.autocompleteOnFocus = false
     }
     
     open func textField(
